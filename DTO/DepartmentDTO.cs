@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Task.ViewModels
+namespace Task.DTO
 {
-    public class DepartmentVM
+    public class DepartmentDTO
     {
         public int Id { get; set; }
 

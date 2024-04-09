@@ -6,6 +6,7 @@ namespace Task.Data
     public class ApplicationDbContext : DbContext
     {
         public DbSet<Department> Departments {get; set;}
+        public DbSet<Employee> Employees {get; set;}
         public ApplicationDbContext()
         {
            

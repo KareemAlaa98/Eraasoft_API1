@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Task.IRepository;
-using Task.ViewModels;
+using Task.DTO;
 
 namespace Task.Controllers
 {
-        [Route("api/[controller]")]
-        [ApiController]
+    [Route("api/[controller]")]
+    [ApiController]
     public class DepartmentController : ControllerBase
     {
         IDepartmentRepository departmentRepository;
@@ -18,7 +18,7 @@ namespace Task.Controllers
         public IActionResult GetAll()
         {
             var departments = departmentRepository.GetAll();
-            if(departments != null)
+            if (departments != null)
             {
                 return Ok(departments);
             }
@@ -39,7 +39,7 @@ namespace Task.Controllers
 
 
         [HttpPost]
-        public IActionResult Create(DepartmentVM deptVM)
+        public IActionResult Create(DepartmentDTO deptVM)
         {
             if (ModelState.IsValid)
             {
@@ -50,7 +50,7 @@ namespace Task.Controllers
         }
 
         [HttpPut]
-        public IActionResult Update(DepartmentVM deptVM)
+        public IActionResult Update(DepartmentDTO deptVM)
         {
             if (ModelState.IsValid)
             {

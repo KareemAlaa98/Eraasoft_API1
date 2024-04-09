@@ -1,5 +1,5 @@
 ﻿using Task.Models;
-using Task.ViewModels;
+using Task.DTO;
 
 namespace Task.IRepository
 {
@@ -8,8 +8,8 @@ namespace Task.IRepository
         List<Department> GetAll();
         Department GetById(int id);
 
-        void Update(DepartmentVM departmentVM);
-        void Create(DepartmentVM departmentVM);
+        void Update(DepartmentDTO departmentDTO);
+        void Create(DepartmentDTO departmentDTO);
         bool Delete(int id);
     }
 }

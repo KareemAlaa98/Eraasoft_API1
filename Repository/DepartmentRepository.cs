@@ -2,14 +2,13 @@
 using Task.Data;
 using Task.IRepository;
 using Task.Models;
-using Task.ViewModels;
+using Task.DTO;
 
 namespace Task.Repository
 {
     public class DepartmentRepository : IDepartmentRepository
     {
         ApplicationDbContext context;
-        private readonly object ModelState;
 
         public DepartmentRepository(ApplicationDbContext context)
         {
@@ -26,22 +25,22 @@ namespace Task.Repository
             return context.Departments.Find(id);
         }
 
-        public void Create(DepartmentVM departmentVM)
+        public void Create(DepartmentDTO departmentDTO)
         {
                 Department department = new Department();
-                department.Id = departmentVM.Id;
-                department.Name = departmentVM.Name;
+                department.Id = departmentDTO.Id;
+                department.Name = departmentDTO.Name;
 
                 context.Departments.Add(department);
                 context.SaveChanges();
         }
 
-        public void Update(DepartmentVM departmentVM)
+        public void Update(DepartmentDTO departmentDTO)
         {
-            var department = context.Departments.Find(departmentVM.Id);
+            var department = context.Departments.Find(departmentDTO.Id);
             if (department != null)
             {
-                department.Name = departmentVM.Name;
+                department.Name = departmentDTO.Name;
                 context.SaveChanges();
             }
         }
